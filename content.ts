@@ -48,10 +48,8 @@ export const nav = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Sobre mí', href: '#sobre' },
   { label: 'Soporte', href: '#soporte' },
-  { label: 'Studio', href: '#web' },
+  { label: 'Estudio', href: '#web' },
   { label: 'Labs', href: '#ia' },
-  { label: 'Trayectoria', href: '#trayectoria' },
-  { label: 'Certificaciones', href: '#certificaciones' },
 ];
 
 export const hero = {

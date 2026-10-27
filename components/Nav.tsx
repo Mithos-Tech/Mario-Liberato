@@ -58,8 +58,8 @@ export default function Nav() {
               src={site.logo?.whiteSvg || '/logo-white.svg'}
               alt="Logo Mario Liberato"
               className="nav-logo-icon"
-              width="22"
-              height="19"
+              width="30"
+              height="26"
               loading="eager"
             />
             <span className="logo-brand">{site.brand}</span>
