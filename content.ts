@@ -400,7 +400,7 @@ export const certifications = {
       meta: '2020',
       validity: 'Itinerario formativo · 15h 13m',
       badge: 'Especialista',
-      href: 'https://collection.cloudinary.com/chlgeobm/aa8c71f0d07e23ec95594f78bb3ca67e',
+      href: '/certificados/linkedin-learning-especialista-soporte-it.pdf',
     },
     {
       issuer: 'Google · Coursera',

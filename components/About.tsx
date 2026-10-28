@@ -81,15 +81,17 @@ export default function About() {
               ))}
             </div>
 
-            {/* Fila de acción: Botón de descarga de CV con blur y sombra sutil */}
+            {/* Fila de acción: Botón de descarga/visualización de CV con blur y sombra sutil */}
             <div className="about-cta-row rv">
               <a
                 className="btn hot about-cv-btn"
                 href={site.cvUrl}
-                download="Mario-Liberato-CV.pdf"
-                title="Descargar Curriculum Vitae en PDF"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Abrir o descargar Curriculum Vitae oficial en PDF"
               >
-                {about.cv.buttonLabel}
+                <span>{about.cv.buttonLabel}</span>
+                <span className="about-btn-arrow ml-1" aria-hidden="true">↗</span>
               </a>
             </div>
           </div>
