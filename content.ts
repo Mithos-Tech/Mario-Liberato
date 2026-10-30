@@ -30,6 +30,7 @@ export const site = {
     orangePng: '/logo-orange.png',
     whitePng: '/logo-white.png',
     ico: '/favicon.ico',
+    faviconSvg: '/favicon.svg',
     cloudinary: {
       whitePng: 'https://res.cloudinary.com/chlgeobm/image/upload/v1793247092/ml_whit_ivqoev.png',
       whiteSvg: 'https://res.cloudinary.com/chlgeobm/image/upload/v1793247092/ml_whit_bbunmn.svg',
