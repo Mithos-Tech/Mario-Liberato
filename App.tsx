@@ -43,8 +43,8 @@ export default function App() {
               src={site.logo?.whiteSvg || '/logo-white.svg'}
               alt="Logo Liberato"
               className="footer-logo-icon"
-              width="20"
-              height="17"
+              width="22"
+              height="21"
               loading="lazy"
             />
             <span className="footer-brand-name">{site.brand}</span>

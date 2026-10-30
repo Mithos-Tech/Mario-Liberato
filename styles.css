@@ -43,11 +43,11 @@ a{color:inherit}a:focus-visible{outline:3px solid var(--glow);outline-offset:3px
 .stat span{display:block;font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:.01em}
 .reveal{opacity:clamp(0,calc((var(--p,1) - var(--s,0)) * 6),1);transform:translateX(calc((1 - clamp(0,calc((var(--p,1) - var(--s,0)) * 6),1)) * 30px))}
 .hint{position:absolute;left:clamp(32px,6.5vw,115px);bottom:22px;z-index:3;padding:8px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;backdrop-filter:blur(10px);opacity:calc(1 - var(--p,0)*6)}
-.logo{display:inline-flex;align-items:center;gap:11px;font:700 17px Montserrat,sans-serif;letter-spacing:.02em;text-decoration:none;color:#fff}
-.nav-logo-icon{width:30px;height:auto;aspect-ratio:1686/1467;display:block;flex-shrink:0;transition:transform .3s cubic-bezier(.16,1,.3,1),filter .3s}
+.logo{display:inline-flex;align-items:center;gap:11px;font-family:Montserrat,system-ui,sans-serif;font-size:17px;font-weight:600;letter-spacing:.02em;text-decoration:none;color:#ffffff}
+.nav-logo-icon{width:32px;height:auto;aspect-ratio:1753/1641;display:block;flex-shrink:0;transition:transform .3s cubic-bezier(.16,1,.3,1),filter .3s}
 .logo:hover .nav-logo-icon{transform:scale(1.06);filter:drop-shadow(0 0 10px rgba(255,255,255,.45))}
-.logo-brand{font-weight:700;font-size:17px;letter-spacing:.02em;color:var(--glow);transition:color .25s ease}
-.logo:hover .logo-brand{color:var(--glow2)}
+.logo-brand{font-family:Montserrat,system-ui,sans-serif;font-weight:600;font-size:17px;letter-spacing:.02em;color:#ffffff;transition:opacity .25s ease,color .25s ease}
+.logo:hover .logo-brand{color:#ffffff;opacity:.9}
 @media(max-width:1100px) and (orientation:landscape){.copy .btns{margin-top:24px}.copy h1{font-size:3vw}.copy{width:min(31vw,340px)}.copy p{display:none}.rail{width:clamp(170px,20vw,230px)}}
 .intro-mob{display:none}
 .intro-desk{display:block}
@@ -233,19 +233,19 @@ section.s{position:relative;box-sizing:border-box;padding:clamp(80px,10vh,130px)
 footer,.site-footer{padding:36px 0 44px;border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
 .site-footer-inner{max-width:1140px;margin:0 auto;padding:0 clamp(20px,3.5vw,40px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .site-footer-brand{display:inline-flex;align-items:center;gap:10px;font:600 14px Montserrat,sans-serif;color:#fff;letter-spacing:.02em}
-.footer-logo-icon{width:18px;height:auto;aspect-ratio:1686/1467;display:block;opacity:.95;transition:transform .25s ease,opacity .25s ease}
+.footer-logo-icon{width:22px;height:auto;aspect-ratio:1753/1641;display:block;opacity:.95;transition:transform .25s ease,opacity .25s ease}
 .site-footer-brand:hover .footer-logo-icon{transform:scale(1.08);opacity:1}
-.footer-brand-name{color:var(--glow);font-weight:700;letter-spacing:.02em;transition:color .25s ease}
-.site-footer-brand:hover .footer-brand-name{color:var(--glow2)}
+.footer-brand-name{color:#ffffff;font-weight:600;letter-spacing:.02em;transition:opacity .25s ease}
+.site-footer-brand:hover .footer-brand-name{opacity:.9}
 .footer-copy{margin:0;color:var(--muted);font-size:13px;font-weight:400}
 @media(max-width:640px){.site-footer-inner{flex-direction:column;align-items:center;text-align:center;gap:12px}}
 
 /* ===== Sistema tipográfico (referencia Kontour, Montserrat) =====
    Títulos grandes en 400–500, textos pequeños en 300, sin negritas pesadas.
    Contraste de escala: ~12 px (texto) frente a 60–300 px (títulos). */
-.links a{font-size:12.5px;font-weight:500;text-transform:uppercase;letter-spacing:.07em}
+.links a{font-size:13.5px;font-weight:500;text-transform:none;letter-spacing:.015em}
 .btn{font-weight:500;font-size:14px;letter-spacing:.005em}
-.logo{font-weight:700;letter-spacing:.02em}
+.logo{font-weight:600;letter-spacing:.02em}
 .eyebrow{display:block;font-size:12.5px;font-weight:400;color:rgba(255,255,255,.8);margin-bottom:14px;letter-spacing:.01em}
 .copy h1{font-weight:400;font-size:clamp(32px,3.9vw,66px);line-height:.98;letter-spacing:-.03em}
 .hi{font-weight:300}.nm{font-weight:500}
@@ -273,9 +273,9 @@ body::before{display:none}
 .fnav .logo{padding:6px 0;background:transparent;border:0;box-shadow:none;transition:transform .25s cubic-bezier(.16,1,.3,1),opacity .75s}
 .fnav .logo:hover{transform:scale(1.04)}
 .flinks{display:flex;align-items:center;gap:clamp(16px,2vw,30px);pointer-events:auto}
-.flink{position:relative;display:inline-block;padding:6px 2px;background:transparent;border:0;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;color:rgba(255,255,255,.8);transition:color .25s}
+.flink{position:relative;display:inline-block;padding:6px 2px;background:transparent;border:0;font-size:13.5px;font-weight:500;text-transform:none;letter-spacing:.015em;text-decoration:none;color:rgba(255,255,255,.8);transition:color .25s}
 .flink:hover,.flink:focus-visible{color:#fff}
-.roll{display:block;overflow:hidden;height:1.25em;line-height:1.25em}
+.roll{display:block;overflow:hidden;height:1.35em;line-height:1.35em}
 .roll>span{display:block;transition:transform .5s cubic-bezier(.16,1,.3,1)}
 .flink:hover .roll>span,.flink:focus-visible .roll>span{transform:translateY(-100%)}
 .fnav .fcontact{text-shadow:none;box-shadow:0 6px 20px -6px rgba(0,0,0,.45);transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .3s,opacity .75s}
@@ -301,8 +301,8 @@ body::before{display:none}
   .flinks{display:none}
   .fnav .fcontact{display:none}
   .fburger{display:inline-flex}
-  .logo{gap:9px;font-size:16px}
-  .nav-logo-icon{width:26px}
+  .logo{gap:10px;font-size:16px}
+  .nav-logo-icon{width:28px}
   .logo-brand{font-size:16px}
 }
 @media (prefers-reduced-motion:reduce){.fnav .fl,.roll>span,.bline{transition:none}}
