@@ -104,40 +104,72 @@ section.s{position:relative;box-sizing:border-box;padding:clamp(80px,10vh,130px)
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 
-/* ===== Bento Grid Soporte TI (MithosTech) estilo Framer ===== */
-.bento-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:20px;align-items:stretch}
-.bento-col{display:flex;flex-direction:column;gap:20px;height:100%}
-.bento-card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:clamp(22px,2.2vw,30px);display:flex;flex-direction:column;box-shadow:0 12px 36px -12px rgba(0,0,0,.45);transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .3s ease,background .3s ease}
-.bento-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.065)}
-.bento-tall{height:100%}
-.bento-card-title{font-family:Montserrat,system-ui,sans-serif;font-size:18px;font-weight:600;letter-spacing:-.02em;color:#ffffff;margin:0 0 16px 0;line-height:1.25}
-.bento-items-list{display:flex;flex-direction:column;gap:12px}
-.bento-item{padding-top:12px;border-top:1px solid rgba(255,255,255,.07)}
-.bento-item:first-child{padding-top:0;border-top:none}
-.bento-item-title{font-family:Montserrat,system-ui,sans-serif;font-size:14.5px;font-weight:600;color:#ffffff;margin:0 0 4px 0;letter-spacing:-.01em}
-.bento-item-desc{font-family:Montserrat,system-ui,sans-serif;font-size:13.5px;font-weight:300;color:rgba(255,255,255,.72);line-height:1.52;margin:0}
-.bento-footnote{font-family:Montserrat,system-ui,sans-serif;font-size:12px;font-weight:300;color:var(--muted);margin-top:auto;padding-top:18px;line-height:1.45}
-.bento-metric-card{justify-content:space-between;flex:1;min-height:200px}
-.bento-metric-stat{font-family:Montserrat,system-ui,sans-serif;font-size:clamp(52px,5.8vw,78px);font-weight:300;letter-spacing:-.045em;color:#ffffff;line-height:.95;margin-bottom:24px}
-.bento-metric-desc{font-family:Montserrat,system-ui,sans-serif;font-size:13.5px;font-weight:300;line-height:1.55;color:rgba(255,255,255,.72);margin:0}
-.bento-info-card{flex:1;justify-content:flex-start}
-.bento-badge{display:inline-flex;align-items:center;align-self:flex-start;padding:3.5px 13px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);font-size:11.5px;font-weight:500;color:rgba(255,255,255,.88);margin-bottom:14px;letter-spacing:.01em}
-.bento-card-desc{font-family:Montserrat,system-ui,sans-serif;font-size:13.5px;font-weight:300;line-height:1.58;color:rgba(255,255,255,.72);margin:0}
-.bento-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px}
-.bento-bullet-item{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;font-weight:300;line-height:1.55;color:rgba(255,255,255,.72)}
-.bento-bullet-dot{width:6px;height:6px;border-radius:50%;background:var(--glow);flex-shrink:0;margin-top:7px;box-shadow:0 0 8px rgba(255,74,28,.6)}
+/* ===== Bento Grid Soporte TI (MithosTech) estilo Framer con Media Real (Video & Imágenes IA) ===== */
+.kick-dot{width:6.5px;height:6.5px;border-radius:50%;background:#FF4A1C;margin-right:8px;display:inline-block;box-shadow:0 0 8px rgba(255,74,28,.75);flex-shrink:0}
+.bento-tech-grid{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:18px;align-items:stretch;width:100%}
+.bento-tech-col{display:flex;flex-direction:column;gap:18px;height:100%}
+.bento-col-center{height:100%}
+.bento-tech-card{background:#0d0d12;border:1px solid rgba(255,255,255,.07);border-radius:20px;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 14px 34px -12px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05);transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .3s ease,box-shadow .4s ease}
+.bento-tech-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.16);box-shadow:0 22px 48px -10px rgba(0,0,0,.8)}
 
-@media(max-width:980px){
-  .bento-grid{grid-template-columns:1fr 1fr;gap:16px}
-  .bento-tall{grid-column:span 2}
-  .bento-col{gap:16px}
+/* Media a sangre completa (Video e Imágenes ocupando el 100% de la tarjeta sin contenedores internos) */
+.bento-card-fullbleed{position:relative;overflow:hidden;border-radius:20px;display:flex;flex-direction:column;justify-content:flex-end}
+.bento-card-aio,.bento-card-cable{aspect-ratio:1 / 1;width:100%}
+.bento-card-audio{aspect-ratio:1 / 1;width:100%;flex:1;min-height:280px}
+
+.bento-full-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;display:block;pointer-events:none;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.bento-tech-card:hover .bento-full-media{transform:scale(1.03)}
+
+.bento-full-scrim{position:absolute;inset:0;pointer-events:none;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,0) 36%,rgba(10,10,14,.32) 62%,rgba(10,10,14,.88) 100%)}
+
+.bento-full-body{position:relative;z-index:3;padding:clamp(18px,2.2vw,24px);margin-top:auto;display:flex;flex-direction:column}
+.bento-tech-kicker{font-family:Montserrat,system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:6px;display:block;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.bento-tech-title{font-size:clamp(22px,2vw,28px);font-weight:400;color:#ffffff;letter-spacing:-.015em;line-height:1.2;margin:0 0 6px 0;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.bento-tech-desc{font-family:Montserrat,system-ui,sans-serif;font-size:13px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.48;margin:0;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.bento-tech-subtitle{font-family:Montserrat,system-ui,sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,.85);margin:0 0 4px 0;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+
+/* Tarjeta Central Alta ('Soporte y mantenimiento de aula tecnológica') */
+.bento-card-tall{height:100%;min-height:560px;justify-content:flex-start}
+.bento-tall-scrim{position:absolute;inset:0;pointer-events:none;z-index:2;background:linear-gradient(180deg,rgba(10,10,14,.88) 0%,rgba(10,10,14,.52) 34%,rgba(0,0,0,0) 65%,rgba(10,10,14,.3) 100%)}
+.bento-tall-header{position:relative;z-index:3;padding:clamp(32px,3.2vw,42px) clamp(24px,2.4vw,32px) clamp(22px,2.2vw,28px)}
+.bento-tall-title{font-family:Montserrat,system-ui,sans-serif;font-size:clamp(22px,1.9vw,27px);font-weight:600;color:#ffffff;letter-spacing:-.02em;margin:0;line-height:1.22;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+.bento-title-block{display:block;margin-top:2px}
+.bento-title-serif{font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-weight:400;color:#ffffff}
+.bento-tall-desc{font-family:Montserrat,system-ui,sans-serif;font-size:13px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.48;margin:10px 0 0 0;max-width:34ch;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+
+/* Tarjeta 3A: Métrica (+20%) con Fondo Degradado IA (Borde negro sutil sin trazo naranja) */
+.bento-card-orange{position:relative;overflow:hidden;border-radius:20px;background:#0d0604;border:1px solid rgba(0,0,0,.35);box-shadow:0 16px 36px -8px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18);aspect-ratio:4 / 3;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+.bento-card-orange:hover{transform:translateY(-4px);border-color:rgba(0,0,0,.55);box-shadow:0 20px 44px -8px rgba(0,0,0,.6)}
+
+.bento-orange-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;opacity:.95;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .3s ease}
+.bento-card-orange:hover .bento-orange-bg-img{transform:scale(1.04);opacity:1}
+
+.bento-orange-inner{position:relative;z-index:2;padding:clamp(20px,2.2vw,26px);display:flex;flex-direction:column;justify-content:space-between;height:100%}
+.bento-orange-kicker{font-family:Montserrat,system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:4px;display:block;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+
+.bento-orange-stat{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(60px,6vw,84px);font-weight:400;letter-spacing:-.02em;line-height:0.95;color:#ffffff;text-shadow:0 4px 18px rgba(0,0,0,.45);margin:2px 0 8px 0;font-variant-numeric:normal}
+
+.bento-orange-desc{font-family:Montserrat,system-ui,sans-serif;font-size:13.5px;font-weight:400;line-height:1.45;color:rgba(255,255,255,.92);text-shadow:0 1px 4px rgba(0,0,0,.5);margin:0;max-width:28ch}
+
+.bento-orange-bottom-note{display:inline-flex;align-items:center;gap:8px;font-family:Montserrat,system-ui,sans-serif;font-size:12px;font-weight:450;color:rgba(255,255,255,.88);margin-top:12px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.bento-pulse-icon{color:#ffffff;opacity:.9}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) and (min-width: 681px){
+  .bento-tech-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .bento-col-center{grid-column:span 2;order:-1}
+  .bento-card-tall{min-height:460px;aspect-ratio:16 / 10}
 }
-@media(max-width:640px){
-  .bento-grid{grid-template-columns:1fr;gap:14px}
-  .bento-tall{grid-column:span 1}
-  .bento-col{gap:14px}
-  .bento-card{padding:20px;border-radius:22px}
-  .bento-metric-stat{font-size:clamp(44px,12vw,62px);margin-bottom:18px}
+@media (max-width: 680px){
+  .bento-tech-grid{grid-template-columns:1fr;gap:14px}
+  .bento-col-center{order:0}
+  .bento-tech-card{border-radius:18px}
+  .bento-card-aio,.bento-card-cable,.bento-card-audio{aspect-ratio:1 / 1}
+  .bento-card-orange{aspect-ratio:4 / 3}
+  .bento-card-tall{min-height:440px;aspect-ratio:4 / 5}
+  .bento-orange-inner{padding:18px 18px}
+  .bento-orange-stat{font-size:clamp(48px,13vw,64px)}
+  .bento-full-body{padding:16px 18px 20px 18px}
 }
 
 .card{padding:32px;border-radius:28px;background:var(--card);border:1px solid var(--line);min-height:340px}

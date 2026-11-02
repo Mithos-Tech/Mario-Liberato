@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FloatingHeader } from './components/FloatingHeader';
 import { HeroSection } from './components/HeroSection';
 import { ProjectsShowcase } from './components/ProjectsShowcase';
+import { MithosTechSection } from './components/MithosTechSection';
 import { CapabilitiesSection } from './components/CapabilitiesSection';
 import { ProcessSection } from './components/ProcessSection';
 import { ContactModal } from './components/ContactModal';
@@ -14,7 +15,7 @@ export default function App() {
   // Track active section for navigation highlight
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'proyectos', 'capacidades', 'metodologia', 'experiencia'];
+      const sections = ['hero', 'proyectos', 'soporte-ti', 'capacidades', 'metodologia', 'experiencia'];
       const scrollY = window.scrollY;
 
       for (const sectionId of sections) {
@@ -58,6 +59,9 @@ export default function App() {
 
         {/* Section 2: Proyectos (Header fades out smoothly here) */}
         <ProjectsShowcase />
+
+        {/* Section: MithosTech - Soporte TI (Bento Grid) */}
+        <MithosTechSection />
 
         {/* Section 3: Capacidades */}
         <CapabilitiesSection />

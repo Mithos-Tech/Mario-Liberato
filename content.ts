@@ -122,29 +122,60 @@ export type BentoQueResuelvoItem = {
 };
 
 export type SupportBentoData = {
-  queResuelvo: {
-    title: string;
-    items: BentoQueResuelvoItem[];
-    footnote?: string;
-  };
-  metric: {
-    stat: string;
-    desc: string;
-  };
-  colaboracion: {
-    tag: string;
+  allInOne: {
+    pill?: string;
+    kicker: string;
     title: string;
     desc: string;
+    schemeLabel?: string;
+    videoUrl?: string;
   };
   cableado: {
-    tag: string;
+    pill?: string;
+    kicker: string;
     title: string;
     desc: string;
+    imageUrl?: string;
   };
-  reparacion: {
-    tag: string;
+  aulaTecnologica: {
+    pill?: string;
+    titlePrefix: string;
+    titleLine2?: string;
+    titleSerif: string;
+    desc: string;
+    imageUrl?: string;
+    features: Array<{
+      id: number;
+      icon: 'monitor' | 'gear' | 'wifi';
+      title: string;
+      sub: string;
+    }>;
+  };
+  servidorUsuario?: {
+    titlePrefix: string;
+    titleSerif: string;
+    imageUrl?: string;
+    layers: Array<{
+      id: number;
+      label: string;
+      sub: string;
+      desc: string;
+    }>;
+  };
+  metric: {
+    kicker: string;
+    stat: string;
+    desc: string;
+    note?: string;
+    bgImage?: string;
+  };
+  cerebrosBrillantes: {
+    pill?: string;
+    kicker?: string;
     title: string;
-    bullets: string[];
+    subtitle: string;
+    desc: string;
+    imageUrl?: string;
   };
 };
 
@@ -172,62 +203,66 @@ export type BrandSectionData = {
 export const support: BrandSectionData = {
   id: 'soporte',
   label: 'MithosTech',
-  title: 'Soporte TI',
-  titlePrefix: 'Soporte ',
+  title: 'SOPORTE TI',
+  titlePrefix: 'SOPORTE ',
   titleSerif: 'TI',
-  lead: 'Diagnóstico y resolución de problemas de equipos, sistemas y redes, con atención clara al usuario.',
+  lead: 'Equipos, redes y cableado, con documentación clara de cada caso.',
   bento: {
-    queResuelvo: {
-      title: 'Qué resuelvo',
-      items: [
-        {
-          title: 'Mantenimiento de equipos',
-          desc: 'Hardware y software en laboratorios de cómputo; recuperación de datos.',
-        },
-        {
-          title: 'Instalación y depuración',
-          desc: 'Windows 10/11, programas y controladores.',
-        },
-        {
-          title: 'Redes y cableado',
-          desc: 'LAN, TCP/IP, DNS, DHCP y cableado estructurado Cat 5e.',
-        },
-        {
-          title: 'Servidores y sistemas',
-          desc: 'Windows Server, Active Directory y Linux (Ubuntu, Red Hat, Kali), en laboratorio.',
-        },
-        {
-          title: 'Seguridad básica',
-          desc: 'Fundamentos de ciberseguridad (Cisco, IBM) y VPN en laboratorio.',
-        },
-        {
-          title: 'Procesos',
-          desc: 'Fundamentos de ITIL (curso) y documentación técnica.',
-        },
-      ],
-      footnote: 'Laboratorio: práctica en entorno académico o virtualizado.',
-    },
-    metric: {
-      stat: '+20%',
-      desc: 'de eficiencia de uso de los equipos, gracias a un sistema de revisión semanal que implementé en la IE 2078.',
-    },
-    colaboracion: {
-      tag: 'Colaboración',
-      title: 'Cerebros Brillantes',
-      desc: 'Apoyé la implementación técnica de este proyecto de la institución para niños de 4.° a 6.° de primaria: equipos y cableado del aula, y edición de audio y video. El proyecto ganó el Concurso Nacional de Innovación Educativa 2023.',
+    allInOne: {
+      pill: 'CASO PRÁCTICO · 2018',
+      kicker: 'REPOTENCIACIÓN DE',
+      title: 'All-in-One HP',
+      desc: 'Limpieza, mantenimiento y actualización de hardware para un mejor rendimiento.',
+      videoUrl: 'https://res.cloudinary.com/chlgeobm/video/upload/v1793639234/repoten_one_lvuazw.mp4',
     },
     cableado: {
-      tag: 'Proyecto',
-      title: 'Cableado estructurado Cat 5e',
-      desc: 'Participé en la planificación e implementación del nuevo cableado de la institución, en reemplazo del antiguo, para las áreas administrativas, de CTA y de cómputo. Forma parte de mi tesis de titulación.',
+      pill: 'PROYECTO EDUCATIVO',
+      kicker: 'CABLEADO ESTRUCTURADO',
+      title: 'Conectividad educativa',
+      desc: 'Reemplazo y organización de cableado en aulas críticas. Conexión estable y segura.',
+      imageUrl: 'https://res.cloudinary.com/chlgeobm/image/upload/v1793639234/cableado_meyypf.webp',
     },
-    reparacion: {
-      tag: 'Casos prácticos',
-      title: 'Reparación y recuperación',
-      bullets: [
-        'Repotenciación de una All-in-One HP (2018): SSD y controladores de video.',
-        'Recuperación de fotos de un USB con virus (TestDisk y PhotoRec), para un tercero.',
+    aulaTecnologica: {
+      pill: 'SERVICIO TÉCNICO',
+      titlePrefix: 'Soporte y mantenimiento',
+      titleLine2: 'de aula ',
+      titleSerif: 'tecnológica',
+      desc: 'Equipos, software y conectividad para un entorno de aprendizaje sin interrupciones.',
+      imageUrl: 'https://res.cloudinary.com/chlgeobm/image/upload/v1793639234/aula_tdmys5.webp',
+      features: [
+        {
+          id: 1,
+          icon: 'monitor',
+          title: 'Equipos',
+          sub: 'informáticos',
+        },
+        {
+          id: 2,
+          icon: 'gear',
+          title: 'Mantenimiento',
+          sub: 'correctivo y preventivo',
+        },
+        {
+          id: 3,
+          icon: 'wifi',
+          title: 'Soporte',
+          sub: 'y conectividad',
+        },
       ],
+    },
+    metric: {
+      kicker: 'RESULTADO · IE 2078',
+      stat: '20%',
+      desc: 'más de eficiencia de uso de los equipos, con una revisión semanal.',
+      note: 'Mantenimiento de equipos',
+      bgImage: 'https://res.cloudinary.com/chlgeobm/image/upload/v1793639233/degradado_cuztym.webp',
+    },
+    cerebrosBrillantes: {
+      pill: 'RECONOCIMIENTO · 2023',
+      title: 'Cerebros Brillantes',
+      subtitle: 'Equipos, cableado y audio',
+      desc: 'Proyecto ganador del Concurso Nacional de Innovación Educativa.',
+      imageUrl: 'https://res.cloudinary.com/chlgeobm/image/upload/v1793639234/podcast_hyaoct.webp',
     },
   },
 };
