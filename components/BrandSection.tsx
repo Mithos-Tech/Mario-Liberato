@@ -1,5 +1,7 @@
 import type { BrandSectionData, CardData, StudioProjectItem } from '../content';
 import SupportBento from './SupportBento';
+import InspyrioLabs from './InspyrioLabs';
+import { getOptimizedCloudinaryUrl, getCloudinarySrcSet } from '../utils/cloudinary';
 
 function Card({ c }: { c: CardData }) {
   return (
@@ -18,12 +20,14 @@ function Card({ c }: { c: CardData }) {
 function StudioShowcase({ projects }: { projects: StudioProjectItem[] }) {
   return (
     <div className="studio-showcase-grid">
-      {projects.map((project) => (
-        <article className="studio-project-card rv" key={project.title}>
+      {projects.map((project, idx) => (
+        <article className={`studio-project-card rv rv-stagger-${idx + 1}`} key={project.title}>
           {/* Contenedor del mockup: Proporción 2:3 limpia con botón diagonal al sitio real */}
           <div className="studio-mockup-frame">
             <img
-              src={project.image}
+              src={getOptimizedCloudinaryUrl(project.image, 800)}
+              srcSet={getCloudinarySrcSet(project.image, [400, 720, 1100])}
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 380px"
               alt={`Mockup de ${project.title}`}
               className="studio-mockup-img"
               loading="lazy"
@@ -99,11 +103,13 @@ export default function BrandSection({ data }: { data: BrandSectionData }) {
           </div>
         </header>
 
-        {/* Diferenciación visual por sección: Bento para Soporte TI, Showcase para Inspyrio Studio */}
+        {/* Diferenciación visual por sección: Bento para Soporte TI, Showcase para Inspyrio Studio, Interactive Labs para Inspyrio Labs */}
         {data.bento ? (
           <SupportBento bento={data.bento} />
         ) : data.projects ? (
           <StudioShowcase projects={data.projects} />
+        ) : data.id === 'ia' ? (
+          <InspyrioLabs />
         ) : (
           <div className="grid">
             {data.cards?.map((c) => <Card key={c.title} c={c} />)}

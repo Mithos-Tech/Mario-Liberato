@@ -302,7 +302,7 @@ export const labs: BrandSectionData = {
   title: 'Agentes de IA',
   titlePrefix: 'Agentes de ',
   titleSerif: 'IA',
-  lead: 'Chatbots y flujos que atienden consultas y capturan clientes potenciales para pymes.',
+  lead: 'Chatbots, agentes de voz y flujos que clasifican, atienden y convierten.',
   cards: [
     { title: '[Nombre del demo de agente]', pairs: [['Problema:', '[…]'], ['Solución:', '[…]']] },
     { title: 'Estado', text: 'Demo funcional en desarrollo, aún sin clientes en producción.', button: { label: 'Probar demo →', href: '#' } },

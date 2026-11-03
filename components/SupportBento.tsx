@@ -1,5 +1,6 @@
 import React from 'react';
 import type { SupportBentoData } from '../content';
+import { getOptimizedCloudinaryUrl, getCloudinarySrcSet } from '../utils/cloudinary';
 
 export default function SupportBento({ bento }: { bento: SupportBentoData }) {
   const aula = bento.aulaTecnologica;
@@ -9,7 +10,7 @@ export default function SupportBento({ bento }: { bento: SupportBentoData }) {
       {/* ========================================================
           COLUMNA 1 (Izquierda): 2 Tarjetas Cuadradas (1:1)
           ======================================================== */}
-      <div className="bento-tech-col">
+      <div className="bento-tech-col rv-stagger-1">
         {/* Tarjeta 1A: Repotenciación All-in-One HP (Video 1:1, sin etiqueta superior) */}
         <article className="bento-tech-card bento-card-fullbleed bento-card-aio">
           {bento.allInOne.videoUrl && (
@@ -41,7 +42,9 @@ export default function SupportBento({ bento }: { bento: SupportBentoData }) {
         <article className="bento-tech-card bento-card-fullbleed bento-card-cable">
           {bento.cableado.imageUrl && (
             <img
-              src={bento.cableado.imageUrl}
+              src={getOptimizedCloudinaryUrl(bento.cableado.imageUrl, 700)}
+              srcSet={getCloudinarySrcSet(bento.cableado.imageUrl, [350, 700, 1000])}
+              sizes="(max-width: 680px) 100vw, (max-width: 1024px) 50vw, 360px"
               alt="Rack mural y cableado estructurado Cat 5e en institución educativa"
               className="bento-full-media"
               loading="lazy"
@@ -63,11 +66,13 @@ export default function SupportBento({ bento }: { bento: SupportBentoData }) {
       {/* ========================================================
           COLUMNA 2 (Centro): Soporte y mantenimiento de aula tecnológica
           ======================================================== */}
-      <div className="bento-tech-col bento-col-center">
+      <div className="bento-tech-col bento-col-center rv-stagger-2">
         <article className="bento-tech-card bento-card-fullbleed bento-card-tall">
           {aula?.imageUrl && (
             <img
-              src={aula.imageUrl}
+              src={getOptimizedCloudinaryUrl(aula.imageUrl, 900)}
+              srcSet={getCloudinarySrcSet(aula.imageUrl, [450, 900, 1200])}
+              sizes="(max-width: 680px) 100vw, (max-width: 1024px) 100vw, 440px"
               alt="Aula de cómputo y arquitectura de equipos al servidor"
               className="bento-full-media"
               loading="lazy"
@@ -96,12 +101,14 @@ export default function SupportBento({ bento }: { bento: SupportBentoData }) {
       {/* ========================================================
           COLUMNA 3 (Derecha): Métrica 20% (4:3) + Cerebros Brillantes (1:1)
           ======================================================== */}
-      <div className="bento-tech-col">
+      <div className="bento-tech-col rv-stagger-3">
         {/* Tarjeta 3A: Métrica (+20%) con fondo degradado y texto limpio (sin línea ascendente, sin borde naranja) */}
         <article className="bento-tech-card bento-card-orange">
           {bento.metric.bgImage && (
             <img
-              src={bento.metric.bgImage}
+              src={getOptimizedCloudinaryUrl(bento.metric.bgImage, 700)}
+              srcSet={getCloudinarySrcSet(bento.metric.bgImage, [350, 700, 1000])}
+              sizes="(max-width: 680px) 100vw, (max-width: 1024px) 50vw, 360px"
               alt=""
               aria-hidden="true"
               className="bento-orange-bg-img"
@@ -133,7 +140,9 @@ export default function SupportBento({ bento }: { bento: SupportBentoData }) {
         <article className="bento-tech-card bento-card-fullbleed bento-card-audio">
           {bento.cerebrosBrillantes.imageUrl && (
             <img
-              src={bento.cerebrosBrillantes.imageUrl}
+              src={getOptimizedCloudinaryUrl(bento.cerebrosBrillantes.imageUrl, 700)}
+              srcSet={getCloudinarySrcSet(bento.cerebrosBrillantes.imageUrl, [350, 700, 1000])}
+              sizes="(max-width: 680px) 100vw, (max-width: 1024px) 50vw, 360px"
               alt="Estudio de podcast y trofeo de Innovación Educativa 2023"
               className="bento-full-media"
               loading="lazy"

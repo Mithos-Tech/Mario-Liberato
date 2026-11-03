@@ -44,7 +44,7 @@ export default function About() {
         {/* Retícula de 2 columnas: Multimedia 4:3 + Contenido editorial */}
         <div className="about-grid">
           {/* Columna Izquierda: Video en contenedor 4:3 centrado */}
-          <div className="about-media-col rv">
+          <div className="about-media-col rv rv-stagger-1">
             <div className="about-frame-4-3" title={about.media.alt}>
               <video
                 ref={videoRef}
@@ -65,14 +65,14 @@ export default function About() {
           {/* Columna Derecha: Bio, Especificaciones y Botón CTA */}
           <div className="about-info-col">
             {/* Párrafos narrativos */}
-            <div className="about-bio rv">
+            <div className="about-bio rv rv-stagger-2">
               {about.paragraphs.map((text, idx) => (
                 <p key={idx}>{text}</p>
               ))}
             </div>
 
             {/* Retícula de especificaciones (2x2) */}
-            <div className="about-specs-grid rv">
+            <div className="about-specs-grid rv rv-stagger-3">
               {about.specs.map((item, idx) => (
                 <div key={idx} className="about-spec-item">
                   <span className="about-spec-label">{item.label}</span>
@@ -82,7 +82,7 @@ export default function About() {
             </div>
 
             {/* Fila de acción: Botón de descarga/visualización de CV con blur y sombra sutil */}
-            <div className="about-cta-row rv">
+            <div className="about-cta-row rv rv-stagger-4">
               <a
                 className="btn hot about-cv-btn"
                 href={site.cvUrl}

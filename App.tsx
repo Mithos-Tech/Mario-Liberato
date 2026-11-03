@@ -18,8 +18,13 @@ export default function App() {
     }
     if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return; }
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((x) => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
-    }, { threshold: 0.12 });
+      entries.forEach((x) => {
+        if (x.isIntersecting) {
+          x.target.classList.add('in');
+          io.unobserve(x.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
     els.forEach((e) => io.observe(e));
     return () => io.disconnect();
   }, []);

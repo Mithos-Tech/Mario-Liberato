@@ -19,8 +19,8 @@ export default function Certifications() {
 
         {/* Retícula de tarjetas de certificaciones estilo Framer (Opción 1: Bento 3x2 con pedestal de logo) */}
         <div className="certs-grid">
-          {certifications.items.map((cert) => (
-            <div key={cert.title} className="cert-card rv">
+          {certifications.items.map((cert, idx) => (
+            <div key={cert.title} className={`cert-card rv rv-stagger-${(idx % 3) + 1}`}>
               <div className="cert-card-shine" aria-hidden="true" />
 
               <div className="cert-top-row">
