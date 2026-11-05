@@ -86,7 +86,7 @@ export default function Trajectory() {
               return (
                 <div
                   key={item.when}
-                  className={`beam-timeline-row rv rv-stagger-${idx + 1} ${isActive ? 'is-active' : ''} ${isPast ? 'is-past' : ''}`}
+                  className={`beam-timeline-row ${isActive ? 'is-active' : ''} ${isPast ? 'is-past' : ''}`}
                   onMouseEnter={() => setActiveIdx(idx)}
                   onClick={() => setActiveIdx(idx)}
                   role="button"
