@@ -77,9 +77,9 @@ export default function Nav() {
             ))}
           </div>
 
-          {/* Botón contactar de escritorio */}
+          {/* Botón contáctame de escritorio */}
           <a className="fl btn white fcontact" style={idx(nav.length + 1)} href="#contacto">
-            Contactar
+            Contáctame
           </a>
 
           {/* Icono de menú flotante en móvil (estilo Framer: 3 líneas escalonadas sin contenedor) */}
@@ -119,7 +119,7 @@ export default function Nav() {
               href="#contacto"
               onClick={handleNavClick}
             >
-              Contactar
+              Contáctame
             </a>
           </div>
         </div>

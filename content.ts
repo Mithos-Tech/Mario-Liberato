@@ -40,7 +40,7 @@ export const site = {
     },
   },
   email: 'Johans.liberatos@gmail.com',
-  linkedin: 'https://www.linkedin.com/in/johansliberatos',
+  linkedin: 'https://www.linkedin.com/in/johansliberatos/',
   cvUrl: `${BASE}cv/Mario-Liberato-CV.pdf`, // sube tu PDF a public/cv/
   footer: '© 2026 Mario J. Liberato. Lima, Perú.',
 };
@@ -80,12 +80,12 @@ export interface AboutSpec {
 export const about = {
   label: 'Sobre mí',
   title: {
-    prefix: 'HOLA, SOY ',
-    name: 'Mario',
+    prefix: 'DEL HARDWARE ',
+    name: 'a la IA',
   },
   headline: 'La tecnología solo vale cuando resuelve un problema real.',
   paragraphs: [
-    'Soy Ingeniero de Soporte de TI (SENATI, titulado en 2025). Desde 2025 he ampliado mi perfil: primero hacia el desarrollo web y, más recientemente, hacia la automatización con IA.',
+    'Mi nombre es Mario Liberato, Ingeniero de Soporte de TI (SENATI, titulado en 2025). Desde 2025 he ampliado mi perfil: primero hacia el desarrollo web y, más recientemente, hacia la automatización con IA.',
     'Mi recorrido va del servidor a la interfaz: empecé en infraestructura, redes y soporte, aprendí a construir con código y hoy automatizo la atención al cliente con inteligencia artificial. Aprendo de forma autodidacta y lo demuestro con proyectos propios y certificaciones verificables.',
     'Busco sumarme a un equipo o proyecto real donde seguir creciendo, con foco en la automatización por WhatsApp.',
   ],
