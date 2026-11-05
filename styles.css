@@ -664,4 +664,92 @@ body::before{display:none}
   .labs-live-dot,.labs-dot,.labs-tracker-pulse{animation:none!important}
 }
 
+/* ===== SECCIÓN CONTACTO: Retícula Bento Framer con FormSpark & Canales Directos ===== */
+.contact-sec{position:relative;padding:clamp(80px,10vh,120px) 0}
+.contact-bento-grid{display:grid;grid-template-columns:1fr 1.18fr;gap:clamp(36px,5vw,68px);align-items:start}
+
+.contact-info-col{display:flex;flex-direction:column;gap:26px;text-align:left}
+.contact-header{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.contact-header .kick{margin:0 0 12px 0}
+.contact-title{text-align:left;justify-content:flex-start;margin:0 0 12px 0}
+.contact-phrase{text-align:left;max-width:44ch;margin:0}
+
+/* Tarjeta de canales secundarios */
+.contact-channels-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:24px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;flex-direction:column;gap:15px;box-shadow:0 12px 34px -10px rgba(0,0,0,.5)}
+.contact-channels-eyebrow{font-family:Montserrat,system-ui,sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.contact-actions-list{display:flex;flex-direction:column;gap:10px}
+.contact-channel-btn{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:550;color:rgba(255,255,255,.9);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);transition:all .25s ease}
+.contact-channel-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.28);color:#ffffff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.contact-btn-icon{flex-shrink:0;margin-right:11px;color:var(--glow)}
+.contact-channel-label{flex:1;text-align:left}
+.contact-btn-arrow{flex-shrink:0;color:rgba(255,255,255,.45);transition:transform .2s ease,color .2s ease}
+.contact-channel-btn:hover .contact-btn-arrow{transform:translate(2px,-2px);color:#ffffff}
+.contact-badge-pdf{padding:2px 8px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:.04em;background:rgba(255,74,28,.14);color:var(--glow2);border:1px solid rgba(255,74,28,.28)}
+
+.contact-status-capsule{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;border-radius:999px;background:rgba(47,211,107,.07);border:1px solid rgba(47,211,107,.2);font-size:12px;font-weight:450;color:rgba(255,255,255,.82);margin-top:2px}
+.contact-live-dot{width:7px;height:7px;border-radius:50%;background:#2fd36b;box-shadow:0 0 8px #2fd36b;flex-shrink:0}
+.contact-status-text{letter-spacing:-.005em}
+
+/* Columna del Formulario Glassmorphic */
+.contact-form-col{position:relative}
+.contact-form-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.095);border-radius:28px;padding:clamp(26px,3.4vw,42px);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 20px 54px -16px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08);transition:border-color .3s ease}
+.contact-form-card:hover{border-color:rgba(255,74,28,.3)}
+
+/* Campo Honeypot invisible para humanos, trampa para bots */
+.contact-honeypot{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+
+.contact-form{display:flex;flex-direction:column;gap:18px}
+.contact-form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.contact-field-group{display:flex;flex-direction:column;gap:6.5px;text-align:left}
+.contact-field-label{font-family:Montserrat,system-ui,sans-serif;font-size:13px;font-weight:550;color:rgba(255,255,255,.85);letter-spacing:-.01em}
+.contact-req-star{color:var(--glow);font-weight:700}
+.contact-opt-tag{font-size:11px;font-weight:400;color:var(--muted)}
+.contact-label-flex{display:flex;align-items:baseline;justify-content:space-between}
+.contact-char-count{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.contact-char-count.is-near-limit{color:#ffaa40;font-weight:600}
+
+.contact-input,.contact-textarea{width:100%;box-sizing:border-box;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:12px 16px;font-family:Montserrat,system-ui,sans-serif;font-size:14px;font-weight:400;color:#ffffff;outline:none;transition:border-color .25s ease,background .25s ease,box-shadow .25s ease}
+.contact-input::placeholder,.contact-textarea::placeholder{color:rgba(255,255,255,.28)}
+.contact-input:focus,.contact-textarea:focus{border-color:rgba(255,74,28,.65);background:rgba(255,255,255,.065);box-shadow:0 0 0 3px rgba(255,74,28,.16)}
+.contact-input.has-error,.contact-textarea.has-error{border-color:#ff5555;box-shadow:0 0 0 3px rgba(255,85,85,.16)}
+.contact-field-error{font-size:11.5px;color:#ff6b6b;font-weight:500;margin-top:2px}
+
+.contact-textarea{resize:vertical;min-height:115px;max-height:260px;line-height:1.55}
+
+.contact-error-banner{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:rgba(255,85,85,.1);border:1px solid rgba(255,85,85,.3);color:#ff9999;font-size:12.5px;line-height:1.45}
+.contact-error-icon{flex-shrink:0;color:#ff5555}
+
+.contact-submit-btn{width:100%;justify-content:center;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;margin-top:4px}
+.contact-submit-btn:disabled{opacity:.55;cursor:not-allowed;transform:none!important}
+.contact-submit-arrow{transition:transform .2s ease}
+.contact-submit-btn:hover:not(:disabled) .contact-submit-arrow{transform:translate(2px,-2px)}
+
+.contact-submit-spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.25);border-top-color:#ffffff;border-radius:50%;display:inline-block;animation:contactSpin .7s linear infinite}
+@keyframes contactSpin{to{transform:rotate(360deg)}}
+
+.contact-privacy-footer{display:flex;align-items:center;justify-content:center;gap:6px;font-size:11.5px;font-weight:400;color:rgba(255,255,255,.45);margin-top:2px;text-align:center}
+.contact-privacy-icon{opacity:.7}
+
+/* Estado de Éxito */
+.contact-success-box{display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 20px;gap:14px}
+.contact-success-icon-wrap{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:rgba(47,211,107,.12);border:1.5px solid rgba(47,211,107,.4);color:#2fd36b;box-shadow:0 0 28px rgba(47,211,107,.35);margin-bottom:4px}
+.contact-success-title{font-family:Montserrat,system-ui,sans-serif;font-size:22px;font-weight:600;letter-spacing:-.015em;color:#ffffff;margin:0}
+.contact-success-msg{font-family:Montserrat,system-ui,sans-serif;font-size:14px;font-weight:350;color:rgba(255,255,255,.75);max-width:38ch;line-height:1.6;margin:0}
+.contact-reset-btn{margin-top:10px;font-size:13.5px}
+
+/* Breakpoints Responsivos */
+@media(max-width:960px){
+  .contact-bento-grid{grid-template-columns:1fr;gap:40px}
+  .contact-info-col{max-width:580px;margin:0 auto;width:100%}
+  .contact-form-col{max-width:580px;margin:0 auto;width:100%}
+}
+@media(max-width:640px){
+  .contact-form-row-2{grid-template-columns:1fr;gap:14px}
+  .contact-form-card{padding:22px 18px;border-radius:20px}
+  .contact-channels-card{padding:18px 16px;border-radius:18px}
+  .contact-channel-btn{padding:11px 16px;font-size:13.5px}
+}
+
 

@@ -41,7 +41,7 @@ export const site = {
   },
   email: 'Johans.liberatos@gmail.com',
   linkedin: 'https://www.linkedin.com/in/johansliberatos/',
-  cvUrl: `${BASE}cv/Mario-Liberato-CV.pdf`, // sube tu PDF a public/cv/
+  cvUrl: '/CV_Mario_Liberato.pdf',
   footer: '© 2026 Mario J. Liberato. Lima, Perú.',
 };
 
@@ -458,8 +458,10 @@ export const journey = trajectory;
 
 export const contact = {
   label: 'Contacto',
-  title: 'Trabajemos juntos',
-  titlePrefix: 'Trabajemos ',
-  titleSerif: 'juntos',
-  text: 'Busco un puesto remoto en soporte TI, desarrollo web o automatización con IA.',
+  title: 'Iniciemos una conversación',
+  titlePrefix: 'Iniciemos una ',
+  titleSerif: 'conversación.',
+  text: '¿Tienes un proyecto en mente o buscas incorporar a tu equipo a alguien especializado en soporte TI, desarrollo web y automatización con IA? Conversemos.',
+  formEndpoint: 'https://submit-form.com/tnzXDZEZU',
+  privacyNotice: 'Usaré tus datos solo para responderte.',
 };
