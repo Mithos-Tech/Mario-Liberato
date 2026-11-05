@@ -55,7 +55,7 @@ export const nav = [
 
 export const hero = {
   eyebrow: 'Portafolio profesional',
-  titleBase: 'Del servidor a la interfaz,',
+  titleBase: 'Del soporte a la interfaz,',
   titleSerif: 'y ahora a la IA.',
   greeting: 'Hola, soy',
   name: 'Mario Liberato',
@@ -86,7 +86,7 @@ export const about = {
   headline: 'La tecnología solo vale cuando resuelve un problema real.',
   paragraphs: [
     'Mi nombre es Mario Liberato, Ingeniero de Soporte de TI (SENATI, titulado en 2025). Desde 2025 he ampliado mi perfil: primero hacia el desarrollo web y, más recientemente, hacia la automatización con IA.',
-    'Mi recorrido va del servidor a la interfaz: empecé en infraestructura, redes y soporte, aprendí a construir con código y hoy automatizo la atención al cliente con inteligencia artificial. Aprendo de forma autodidacta y lo demuestro con proyectos propios y certificaciones verificables.',
+    'Mi recorrido va del soporte técnico a la interfaz: empecé en infraestructura, redes y soporte, aprendí a construir con código y hoy automatizo la atención al cliente con inteligencia artificial. Aprendo de forma autodidacta y lo demuestro con proyectos propios y certificaciones verificables.',
     'Busco sumarme a un equipo o proyecto real donde seguir creciendo, con foco en la automatización por WhatsApp.',
   ],
   specs: [

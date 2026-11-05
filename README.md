@@ -17,7 +17,7 @@ El portafolio se estructura en tres marcas y áreas operativas complementarias:
 ### 1. MithosTech · Soporte de TI e Infraestructura
 * **Diagnóstico y mantenimiento:** Hardware, software y recuperación de información en laboratorios y entornos corporativos.
 * **Redes y conectividad:** Planificación e implementación de cableado estructurado Cat 5e, topologías LAN, TCP/IP, DNS y DHCP.
-* **Sistemas y servidores:** Windows Server, Active Directory y distribuciones Linux (Ubuntu, Red Hat, Kali) en entornos virtualizados.
+* **Sistemas operativos:** Entornos Windows, máquinas virtuales y distribuciones Linux (Ubuntu, Red Hat, Kali).
 * **Impacto comprobado:** Optimización documentada (+20% de disponibilidad de equipos mediante rutinas de mantenimiento preventivo semanal).
 
 ### 2. Inspyrio Studio · Diseño y Desarrollo Web
