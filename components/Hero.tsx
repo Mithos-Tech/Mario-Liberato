@@ -134,7 +134,14 @@ export default function Hero() {
 
     document.fonts.load('500 100px Montserrat').then(() => { measureWord(); fontReady = true; last = -1; set(cur); }).catch(() => {});
     try { history.scrollRestoration = 'manual'; } catch { /* noop */ }
-    measure(); cur = target; mode();
+    if (!window.location.hash || window.location.hash === '#inicio') {
+      window.scrollTo(0, 0);
+      cur = target = 0;
+    } else {
+      measure();
+      cur = target;
+    }
+    mode();
     if (!reduce) window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', mode);
     return () => {

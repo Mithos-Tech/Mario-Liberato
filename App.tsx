@@ -15,7 +15,10 @@ export default function App() {
   useEffect(() => {
     const els = Array.from(document.querySelectorAll<HTMLElement>('.rv'));
     if (!window.location.hash || window.location.hash === '#inicio') {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+      const t = setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+      }, 50);
     }
     if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return; }
     const io = new IntersectionObserver((entries) => {

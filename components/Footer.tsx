@@ -194,10 +194,10 @@ export default function Footer() {
             ))}
           </defs>
 
-          {/* Marco hexagonal: trazo base tenue */}
-          <g fill="none" stroke="rgba(255,255,255,.22)" strokeWidth="1">
-            <path d="M82 0 V215 L185 403" />
-            <path d="M937 0 V217 L833 403" />
+          {/* Marco hexagonal: trazo base tenue conectado al botón */}
+          <g fill="none" stroke="rgba(255,255,255,.16)" strokeWidth="1">
+            <path d="M82 0 V215 L185 403 H509" />
+            <path d="M937 0 V217 L833 403 H513" />
           </g>
 
           {/* Destellos fijos del modelo con efecto respiración */}
@@ -232,36 +232,7 @@ export default function Footer() {
             />
           </g>
 
-          {/* Caja inferior del horizonte */}
-          <path
-            d="M184 403 H833"
-            fill="none"
-            stroke="url(#dgH)"
-            strokeWidth="5"
-            opacity=".35"
-            filter="url(#dgBlurSm)"
-          />
-          <path d="M184 403 H833" fill="none" stroke="url(#dgH)" strokeWidth="1.2" />
-          <g fill="none" stroke="rgba(255,205,170,.28)" strokeWidth="1">
-            <path d="M184 403 V612" />
-            <path d="M833 403 V612" />
-          </g>
-
-          {/* Marcas de regla y anillos de telemetría */}
-          <g stroke="rgba(255,225,200,.45)" strokeWidth="1.2">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <line key={'l' + i} x1={194 + i * 5.2} x2={194 + i * 5.2} y1="419" y2="426.5" />
-            ))}
-            {Array.from({ length: 10 }).map((_, i) => (
-              <line key={'r' + i} x1={777 + i * 5.2} x2={777 + i * 5.2} y1="419" y2="426.5" />
-            ))}
-          </g>
-          <g fill="none" stroke="rgba(255,225,200,.5)" strokeWidth="1.2">
-            <circle cx="249" cy="423" r="3.6" />
-            <circle cx="768.5" cy="423" r="3.6" />
-          </g>
-
-          {/* Circuito inferior (4 trazos simétricos) */}
+          {/* Circuito inferior (4 trazos simétricos puros que nacen del botón) */}
           <g fill="none" strokeWidth="1">
             {CIRCUIT.map((c, i) => (
               <path key={i} d={c.d} stroke={'url(#dgC' + i + ')'} />

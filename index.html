@@ -79,7 +79,14 @@
 <script>
 document.documentElement.classList.add('js');
 try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
-if (!window.location.hash || window.location.hash === '#inicio') window.scrollTo(0, 0);
+function initScrollTop() {
+  if (!window.location.hash || window.location.hash === '#inicio') {
+    window.scrollTo(0, 0);
+  }
+}
+initScrollTop();
+window.addEventListener('DOMContentLoaded', initScrollTop);
+window.addEventListener('load', initScrollTop);
 </script>
 </head>
 <body>
