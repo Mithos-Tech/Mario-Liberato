@@ -283,15 +283,219 @@ section.s{position:relative;box-sizing:border-box;padding:clamp(80px,10vh,130px)
 .cert h4{margin:0 0 4px;font-size:16px;font-weight:600}.cert p{margin:0;font-size:14px}.cert a{font-size:14px;color:var(--glow);text-decoration:none;font-weight:600}
 .note{margin-top:18px;font-size:14px}
 .cta{text-align:center}
-footer,.site-footer{padding:36px 0 44px;border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
-.site-footer-inner{max-width:1140px;margin:0 auto;padding:0 clamp(20px,3.5vw,40px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.site-footer-brand{display:inline-flex;align-items:center;gap:10px;font:600 14px Montserrat,sans-serif;color:#fff;letter-spacing:.02em}
-.footer-logo-icon{width:22px;height:auto;aspect-ratio:1753/1641;display:block;opacity:.95;transition:transform .25s ease,opacity .25s ease}
-.site-footer-brand:hover .footer-logo-icon{transform:scale(1.08);opacity:1}
-.footer-brand-name{color:#ffffff;font-weight:600;letter-spacing:.02em;transition:opacity .25s ease}
-.site-footer-brand:hover .footer-brand-name{opacity:.9}
-.footer-copy{margin:0;color:var(--muted);font-size:13px;font-weight:400}
-@media(max-width:640px){.site-footer-inner{flex-direction:column;align-items:center;text-align:center;gap:12px}}
+/* ===== PIE DE PÁGINA ESTILO FRAMER (Sello de Estudio Minimalista) ===== */
+.framer-footer{
+  position:relative;
+  padding:clamp(54px,7vh,84px) 0 clamp(42px,5.5vh,64px);
+  background:linear-gradient(180deg,transparent 0%,rgba(6,6,8,.92) 100%);
+  border-top:1px solid rgba(255,255,255,.07);
+}
+
+.framer-footer-card{
+  display:flex;
+  flex-direction:column;
+  gap:clamp(28px,3.5vw,40px);
+}
+
+/* Fila Superior: Marca a la izquierda, Navegación rápida a la derecha */
+.framer-footer-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:36px;
+  flex-wrap:wrap;
+}
+
+.framer-footer-brand-col{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  text-align:left;
+  max-width:380px;
+}
+
+.framer-footer-brand{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  text-decoration:none;
+  color:#ffffff;
+  transition:opacity .25s ease;
+  width:fit-content;
+}
+.framer-footer-brand:hover{
+  opacity:.88;
+}
+
+.framer-footer-logo-img{
+  width:22px;
+  height:auto;
+  aspect-ratio:1753/1641;
+  display:block;
+  opacity:.95;
+  transition:transform .25s ease;
+}
+.framer-footer-brand:hover .framer-footer-logo-img{
+  transform:scale(1.08);
+}
+
+.framer-footer-brand-title{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:14px;
+  font-weight:650;
+  letter-spacing:.04em;
+  color:#ffffff;
+}
+
+.framer-footer-tagline{
+  margin:0;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:12.5px;
+  font-weight:400;
+  color:rgba(255,255,255,.5);
+  line-height:1.5;
+  letter-spacing:-.01em;
+}
+
+/* Matriz de Navegación Espejo */
+.framer-footer-nav{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:clamp(16px,2vw,28px);
+}
+
+.framer-footer-nav-link{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:13px;
+  font-weight:450;
+  color:rgba(255,255,255,.65);
+  text-decoration:none;
+  letter-spacing:-.005em;
+  transition:color .2s ease,transform .2s ease;
+  padding:4px 0;
+}
+.framer-footer-nav-link:hover{
+  color:#ffffff;
+  transform:translateY(-1px);
+}
+
+/* Divisor sutil entre pisos */
+.framer-footer-divider{
+  width:100%;
+  height:1px;
+  background:rgba(255,255,255,.06);
+}
+
+/* Fila Inferior: Indicador de Lima, Copyright y Botón Arriba */
+.framer-footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+/* Cápsula de Zona Horaria */
+.framer-footer-time-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7.5px;
+  padding:6px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:12px;
+  color:rgba(255,255,255,.75);
+}
+
+.framer-footer-time-pulse{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#22c55e;
+  box-shadow:0 0 8px rgba(34,197,94,.7);
+  display:inline-block;
+  animation:footerTimePulse 2.5s ease-in-out infinite;
+}
+@keyframes footerTimePulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.45;transform:scale(.85)}
+}
+
+.framer-footer-time-label{
+  font-weight:600;
+  color:#ffffff;
+}
+.framer-footer-time-val{
+  font-variant-numeric:tabular-nums;
+  color:rgba(255,255,255,.6);
+}
+
+/* Copyright */
+.framer-footer-copy{
+  margin:0;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:12.5px;
+  font-weight:400;
+  color:rgba(255,255,255,.45);
+  letter-spacing:-.005em;
+}
+
+/* Botón interactivo Arriba ↑ */
+.framer-footer-top-btn{
+  all:unset;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:12px;
+  font-weight:550;
+  color:rgba(255,255,255,.8);
+  transition:all .25s ease;
+}
+.framer-footer-top-btn:hover{
+  background:rgba(255,255,255,.09);
+  border-color:rgba(255,255,255,.2);
+  color:#ffffff;
+  transform:translateY(-2px);
+}
+.framer-footer-top-arrow{
+  font-size:13px;
+  transition:transform .2s ease;
+  display:inline-block;
+}
+.framer-footer-top-btn:hover .framer-footer-top-arrow{
+  transform:translateY(-2px);
+}
+
+/* Adaptabilidad Mobile y Tablet */
+@media(max-width:820px){
+  .framer-footer-top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:22px;
+  }
+  .framer-footer-nav{
+    gap:10px 18px;
+  }
+  .framer-footer-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+  }
+}
+@media(max-width:540px){
+  .framer-footer{
+    padding:40px 0 32px;
+  }
+}
 
 /* ===== Sistema tipográfico (referencia Kontour, Montserrat) =====
    Títulos grandes en 400–500, textos pequeños en 300, sin negritas pesadas.
@@ -664,92 +868,650 @@ body::before{display:none}
   .labs-live-dot,.labs-dot,.labs-tracker-pulse{animation:none!important}
 }
 
-/* ===== SECCIÓN CONTACTO: Retícula Bento Framer con FormSpark & Canales Directos ===== */
-.contact-sec{position:relative;padding:clamp(80px,10vh,120px) 0}
-.contact-bento-grid{display:grid;grid-template-columns:1fr 1.18fr;gap:clamp(36px,5vw,68px);align-items:start}
+/* ===== SECCIÓN CONTACTO: Contenedor Blanco de Alto Impacto (Framer White Island) ===== */
+/* ===== SECCIÓN CONTACTO: Contenedor Blanco de Alto Impacto (Framer White Island) ===== */
+.contact-sec{position:relative;padding:clamp(80px,10.5vh,135px) 0}
+.contact-sec .wrap{
+  max-width:1380px;
+  padding:0 clamp(20px,3.5vw,48px);
+}
 
-.contact-info-col{display:flex;flex-direction:column;gap:26px;text-align:left}
-.contact-header{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
-.contact-header .kick{margin:0 0 12px 0}
-.contact-title{text-align:left;justify-content:flex-start;margin:0 0 12px 0}
-.contact-phrase{text-align:left;max-width:44ch;margin:0}
+/* Contenedor blanco puro monumental con curvatura pronunciada y sombra de estudio */
+.contact-white-card{
+  background:#ffffff;
+  border-radius:clamp(32px,3.8vw,48px);
+  padding:clamp(44px,5.6vw,84px);
+  color:#0a0a0c;
+  box-shadow:0 36px 90px -25px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.09);
+  position:relative;
+  overflow:hidden;
+  min-height:580px;
+}
 
-/* Tarjeta de canales secundarios */
-.contact-channels-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:24px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;flex-direction:column;gap:15px;box-shadow:0 12px 34px -10px rgba(0,0,0,.5)}
-.contact-channels-eyebrow{font-family:Montserrat,system-ui,sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+/* Retícula de 2 columnas asimétricas inspirada en el diseño de referencia */
+.contact-white-grid{
+  display:grid;
+  grid-template-columns:1fr 1.12fr;
+  gap:clamp(46px,5.8vw,88px);
+  align-items:stretch;
+}
 
-.contact-actions-list{display:flex;flex-direction:column;gap:10px}
-.contact-channel-btn{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:550;color:rgba(255,255,255,.9);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);transition:all .25s ease}
-.contact-channel-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.28);color:#ffffff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
-.contact-btn-icon{flex-shrink:0;margin-right:11px;color:var(--glow)}
-.contact-channel-label{flex:1;text-align:left}
-.contact-btn-arrow{flex-shrink:0;color:rgba(255,255,255,.45);transition:transform .2s ease,color .2s ease}
-.contact-channel-btn:hover .contact-btn-arrow{transform:translate(2px,-2px);color:#ffffff}
-.contact-badge-pdf{padding:2px 8px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:.04em;background:rgba(255,74,28,.14);color:var(--glow2);border:1px solid rgba(255,74,28,.28)}
+/* Columna Izquierda: Titular Editorial + Tabla de Metadatos al pie */
+.contact-white-left{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:100%;
+  min-height:100%;
+  text-align:left;
+}
 
-.contact-status-capsule{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;border-radius:999px;background:rgba(47,211,107,.07);border:1px solid rgba(47,211,107,.2);font-size:12px;font-weight:450;color:rgba(255,255,255,.82);margin-top:2px}
-.contact-live-dot{width:7px;height:7px;border-radius:50%;background:#2fd36b;box-shadow:0 0 8px #2fd36b;flex-shrink:0}
-.contact-status-text{letter-spacing:-.005em}
+.contact-white-header{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding-top:6px;
+}
 
-/* Columna del Formulario Glassmorphic */
-.contact-form-col{position:relative}
-.contact-form-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.095);border-radius:28px;padding:clamp(26px,3.4vw,42px);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 20px 54px -16px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08);transition:border-color .3s ease}
-.contact-form-card:hover{border-color:rgba(255,74,28,.3)}
+/* Titular editorial mayúscula refinado (escala grande, peso ligero 480 fiel a la referencia) */
+.contact-white-title{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:clamp(30px,3.6vw,54px);
+  font-weight:480;
+  line-height:1.06;
+  letter-spacing:-.03em;
+  color:#0a0a0c;
+  text-transform:uppercase;
+  margin:0;
+  max-width:14ch;
+}
+
+/* Tabla de Metadatos fija en la base de la columna izquierda (100% tipográfica, sin iconos) */
+.contact-white-meta-table{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  margin-top:auto;
+  padding-top:clamp(40px,5.5vh,68px);
+  border-top:1px solid #f0f0f3;
+}
+
+.contact-white-meta-row{
+  display:grid;
+  grid-template-columns:125px 1fr;
+  align-items:center;
+  gap:16px;
+}
+
+.contact-white-meta-label{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:14px;
+  font-weight:400;
+  color:#8a8a93;
+}
+
+.contact-white-meta-value{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:15px;
+  font-weight:450;
+  color:#0a0a0c;
+  letter-spacing:-.01em;
+}
+
+.contact-white-meta-link{
+  display:inline-block;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:15px;
+  font-weight:450;
+  color:#0a0a0c;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  text-decoration-color:rgba(10,10,12,.22);
+  transition:color .2s ease,text-decoration-color .2s ease;
+  width:fit-content;
+}
+.contact-white-meta-link:hover{
+  color:var(--glow);
+  text-decoration-color:var(--glow);
+}
+
+/* Columna Derecha: Formulario con campos de fondo gris suave */
+.contact-white-right{
+  display:flex;
+  flex-direction:column;
+  text-align:left;
+}
+
+.contact-white-form-top{
+  display:flex;
+  justify-content:flex-start;
+  margin-bottom:22px;
+}
+.contact-white-kicker{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:13.5px;
+  font-weight:500;
+  color:#71717a;
+  text-transform:none;
+  letter-spacing:-.01em;
+}
+
+.contact-white-form{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.contact-white-row-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+
+.contact-white-field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  text-align:left;
+  min-width:0;
+}
+
+.contact-white-label{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:14px;
+  font-weight:550;
+  color:#18181b;
+  letter-spacing:-.01em;
+  min-height:20px;
+  line-height:20px;
+  display:flex;
+  align-items:baseline;
+  gap:4px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.contact-white-star{
+  color:var(--glow);
+  font-weight:700;
+}
+.contact-white-opt{
+  font-size:12px;
+  font-weight:400;
+  color:#71717a;
+}
+.contact-white-label-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+}
+.contact-white-char-count{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:12px;
+  color:#71717a;
+  font-variant-numeric:tabular-nums;
+}
+.contact-white-char-count.is-limit{
+  color:var(--glow);
+  font-weight:600;
+}
+
+/* Inputs de formato amplio y confortable estilo Framer */
+.contact-white-input,
+.contact-white-textarea{
+  width:100%;
+  box-sizing:border-box;
+  background:#efeff2;
+  border:1px solid transparent;
+  border-radius:16px;
+  padding:15px 20px;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:15px;
+  font-weight:400;
+  color:#0a0a0c;
+  outline:none;
+  transition:border-color .25s ease,background .25s ease,box-shadow .25s ease;
+}
+.contact-white-input{
+  height:54px;
+}
+.contact-white-input::placeholder,
+.contact-white-textarea::placeholder{
+  color:#a1a1aa;
+}
+.contact-white-input:focus,
+.contact-white-textarea:focus{
+  background:#ffffff;
+  border-color:var(--glow);
+  box-shadow:0 0 0 3px rgba(255,74,28,.16);
+}
+.contact-white-input.has-error,
+.contact-white-textarea.has-error{
+  border-color:#ef4444;
+  background:#ffffff;
+  box-shadow:0 0 0 3px rgba(239,68,68,.14);
+}
+.contact-white-error{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:12px;
+  color:#dc2626;
+  font-weight:500;
+  margin-top:2px;
+}
+.contact-white-textarea{
+  resize:vertical;
+  min-height:145px;
+  max-height:280px;
+  line-height:1.6;
+  padding:16px 20px;
+}
+
+.contact-white-error-banner{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 16px;
+  border-radius:12px;
+  background:#fef2f2;
+  border:1px solid #fecaca;
+  color:#b91c1c;
+  font-size:13px;
+  line-height:1.45;
+}
+
+/* Botón estilo Referencia: Píldora Negra con Círculo Blanco y Flecha ↗ */
+.contact-white-action-bar{
+  display:flex;
+  align-items:center;
+  margin-top:8px;
+}
+
+.contact-white-pill-btn{
+  all:unset;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:20px;
+  background:#0a0a0c;
+  color:#ffffff;
+  padding:6px 7px 6px 30px;
+  border-radius:999px;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:15px;
+  font-weight:550;
+  letter-spacing:-.01em;
+  transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s cubic-bezier(.16,1,.3,1),background .2s ease;
+  box-shadow:0 10px 28px -6px rgba(0,0,0,.38);
+}
+.contact-white-pill-btn:hover:not(:disabled){
+  transform:translateY(-2px);
+  background:#18181b;
+  box-shadow:0 16px 36px -6px rgba(0,0,0,.52);
+}
+.contact-white-pill-btn:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+  transform:none!important;
+}
+
+.contact-white-pill-icon{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:#ffffff;
+  color:#0a0a0c;
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  transition:transform .2s ease;
+}
+.contact-white-pill-btn:hover:not(:disabled) .contact-white-pill-icon{
+  transform:scale(1.06);
+}
+.contact-white-pill-btn:hover:not(:disabled) .contact-white-pill-icon svg{
+  transform:translate(1px,-1px);
+}
+.contact-white-pill-icon svg{
+  transition:transform .2s ease;
+}
+
+.contact-white-spinner{
+  width:14px;
+  height:14px;
+  border:2px solid rgba(10,10,12,.25);
+  border-top-color:#0a0a0c;
+  border-radius:50%;
+  display:inline-block;
+  animation:contactWhiteSpin .7s linear infinite;
+}
+@keyframes contactWhiteSpin{
+  to{transform:rotate(360deg)}
+}
+
+.contact-white-privacy-note{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:6px 10px;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:12px;
+  color:#71717a;
+  margin-top:6px;
+}
+.contact-white-privacy-trigger{
+  all:unset;
+  cursor:pointer;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:12px;
+  font-weight:550;
+  color:#18181b;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  text-decoration-color:rgba(24,24,27,.35);
+  transition:color .2s ease,text-decoration-color .2s ease;
+}
+.contact-white-privacy-trigger:hover{
+  color:var(--glow);
+  text-decoration-color:var(--glow);
+}
+
+/* Modal de Aviso de Privacidad y Tratamiento de Datos */
+.privacy-modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(10,10,12,.72);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(16px,3vw,32px);
+  animation:privacyFadeIn .25s ease-out;
+}
+@keyframes privacyFadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+.privacy-modal-card{
+  background:#ffffff;
+  color:#0a0a0c;
+  width:100%;
+  max-width:560px;
+  border-radius:24px;
+  padding:clamp(24px,3.5vw,36px);
+  box-shadow:0 30px 80px -15px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.1);
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  animation:privacyCardUp .3s cubic-bezier(.16,1,.3,1);
+}
+@keyframes privacyCardUp{
+  from{opacity:0;transform:translateY(16px) scale(.98)}
+  to{opacity:1;transform:none}
+}
+
+.privacy-modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.privacy-modal-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:12px;
+  font-weight:600;
+  color:#18181b;
+  background:#f4f4f5;
+  padding:4px 11px;
+  border-radius:999px;
+}
+.privacy-modal-close{
+  all:unset;
+  cursor:pointer;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:14px;
+  color:#71717a;
+  background:#f4f4f5;
+  transition:all .2s ease;
+}
+.privacy-modal-close:hover{
+  background:#e4e4e7;
+  color:#0a0a0c;
+}
+
+.privacy-modal-title{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:20px;
+  font-weight:650;
+  color:#0a0a0c;
+  letter-spacing:-.02em;
+  line-height:1.25;
+  margin:0;
+  text-align:left;
+}
+
+.privacy-modal-body{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  text-align:left;
+}
+.privacy-modal-intro{
+  margin:0;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:13px;
+  line-height:1.55;
+  color:#52525b;
+}
+.privacy-modal-list{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+  background:#fafafa;
+  border:1px solid #f0f0f3;
+  border-radius:16px;
+  padding:16px;
+}
+.privacy-modal-item{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+}
+.privacy-item-num{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:#18181b;
+  color:#ffffff;
+  font-size:11px;
+  font-weight:600;
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  margin-top:1px;
+}
+.privacy-item-text{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.privacy-item-text strong{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:13px;
+  font-weight:600;
+  color:#18181b;
+}
+.privacy-item-text p{
+  margin:0;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:12.5px;
+  line-height:1.5;
+  color:#52525b;
+}
+
+.privacy-modal-footer{
+  display:flex;
+  justify-content:flex-end;
+  padding-top:4px;
+}
+.privacy-modal-action-btn{
+  all:unset;
+  cursor:pointer;
+  display:inline-block;
+  padding:9px 24px;
+  border-radius:999px;
+  background:#0a0a0c;
+  color:#ffffff;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:13.5px;
+  font-weight:550;
+  transition:all .2s ease;
+}
+.privacy-modal-action-btn:hover{
+  background:#27272a;
+  transform:translateY(-1px);
+}
+
+/* Estado de Éxito en contenedor blanco */
+.contact-white-success{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:48px 24px;
+  gap:16px;
+  background:#fafafa;
+  border-radius:20px;
+  border:1px solid #f0f0f3;
+}
+.contact-white-success-icon{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:#dcfce7;
+  color:#16a34a;
+  display:grid;
+  place-items:center;
+  box-shadow:0 0 24px rgba(22,163,74,.25);
+}
+.contact-white-success-heading{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:22px;
+  font-weight:650;
+  color:#0a0a0c;
+  letter-spacing:-.015em;
+  margin:0;
+}
+.contact-white-success-desc{
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:14px;
+  color:#52525b;
+  max-width:40ch;
+  line-height:1.6;
+  margin:0;
+}
+.contact-white-reset-btn{
+  all:unset;
+  cursor:pointer;
+  display:inline-block;
+  padding:10px 22px;
+  border-radius:999px;
+  background:#0a0a0c;
+  color:#ffffff;
+  font-family:Montserrat,system-ui,sans-serif;
+  font-size:13.5px;
+  font-weight:550;
+  transition:all .2s ease;
+  margin-top:8px;
+}
+.contact-white-reset-btn:hover{
+  background:#27272a;
+  transform:translateY(-1px);
+}
 
 /* Campo Honeypot invisible para humanos, trampa para bots */
-.contact-honeypot{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
-
-.contact-form{display:flex;flex-direction:column;gap:18px}
-.contact-form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-
-.contact-field-group{display:flex;flex-direction:column;gap:6.5px;text-align:left}
-.contact-field-label{font-family:Montserrat,system-ui,sans-serif;font-size:13px;font-weight:550;color:rgba(255,255,255,.85);letter-spacing:-.01em}
-.contact-req-star{color:var(--glow);font-weight:700}
-.contact-opt-tag{font-size:11px;font-weight:400;color:var(--muted)}
-.contact-label-flex{display:flex;align-items:baseline;justify-content:space-between}
-.contact-char-count{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
-.contact-char-count.is-near-limit{color:#ffaa40;font-weight:600}
-
-.contact-input,.contact-textarea{width:100%;box-sizing:border-box;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:12px 16px;font-family:Montserrat,system-ui,sans-serif;font-size:14px;font-weight:400;color:#ffffff;outline:none;transition:border-color .25s ease,background .25s ease,box-shadow .25s ease}
-.contact-input::placeholder,.contact-textarea::placeholder{color:rgba(255,255,255,.28)}
-.contact-input:focus,.contact-textarea:focus{border-color:rgba(255,74,28,.65);background:rgba(255,255,255,.065);box-shadow:0 0 0 3px rgba(255,74,28,.16)}
-.contact-input.has-error,.contact-textarea.has-error{border-color:#ff5555;box-shadow:0 0 0 3px rgba(255,85,85,.16)}
-.contact-field-error{font-size:11.5px;color:#ff6b6b;font-weight:500;margin-top:2px}
-
-.contact-textarea{resize:vertical;min-height:115px;max-height:260px;line-height:1.55}
-
-.contact-error-banner{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:rgba(255,85,85,.1);border:1px solid rgba(255,85,85,.3);color:#ff9999;font-size:12.5px;line-height:1.45}
-.contact-error-icon{flex-shrink:0;color:#ff5555}
-
-.contact-submit-btn{width:100%;justify-content:center;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;margin-top:4px}
-.contact-submit-btn:disabled{opacity:.55;cursor:not-allowed;transform:none!important}
-.contact-submit-arrow{transition:transform .2s ease}
-.contact-submit-btn:hover:not(:disabled) .contact-submit-arrow{transform:translate(2px,-2px)}
-
-.contact-submit-spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.25);border-top-color:#ffffff;border-radius:50%;display:inline-block;animation:contactSpin .7s linear infinite}
-@keyframes contactSpin{to{transform:rotate(360deg)}}
-
-.contact-privacy-footer{display:flex;align-items:center;justify-content:center;gap:6px;font-size:11.5px;font-weight:400;color:rgba(255,255,255,.45);margin-top:2px;text-align:center}
-.contact-privacy-icon{opacity:.7}
-
-/* Estado de Éxito */
-.contact-success-box{display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 20px;gap:14px}
-.contact-success-icon-wrap{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:rgba(47,211,107,.12);border:1.5px solid rgba(47,211,107,.4);color:#2fd36b;box-shadow:0 0 28px rgba(47,211,107,.35);margin-bottom:4px}
-.contact-success-title{font-family:Montserrat,system-ui,sans-serif;font-size:22px;font-weight:600;letter-spacing:-.015em;color:#ffffff;margin:0}
-.contact-success-msg{font-family:Montserrat,system-ui,sans-serif;font-size:14px;font-weight:350;color:rgba(255,255,255,.75);max-width:38ch;line-height:1.6;margin:0}
-.contact-reset-btn{margin-top:10px;font-size:13.5px}
-
-/* Breakpoints Responsivos */
-@media(max-width:960px){
-  .contact-bento-grid{grid-template-columns:1fr;gap:40px}
-  .contact-info-col{max-width:580px;margin:0 auto;width:100%}
-  .contact-form-col{max-width:580px;margin:0 auto;width:100%}
+.contact-honeypot{
+  position:absolute!important;
+  left:-9999px!important;
+  top:auto!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+  opacity:0!important;
+  pointer-events:none!important;
 }
+
+/* Breakpoints Responsivos: Desktop, Tablet y Móvil */
+@media(max-width:980px){
+  .contact-white-grid{
+    grid-template-columns:1fr;
+    gap:44px;
+  }
+  .contact-white-left{
+    height:auto;
+    min-height:auto;
+  }
+  .contact-white-title{
+    max-width:100%;
+    font-size:clamp(28px,5vw,44px);
+  }
+  .contact-white-meta-table{
+    margin-top:28px;
+    padding-top:28px;
+  }
+  .contact-white-form-top{
+    display:none;
+  }
+}
+
 @media(max-width:640px){
-  .contact-form-row-2{grid-template-columns:1fr;gap:14px}
-  .contact-form-card{padding:22px 18px;border-radius:20px}
-  .contact-channels-card{padding:18px 16px;border-radius:18px}
-  .contact-channel-btn{padding:11px 16px;font-size:13.5px}
+  .contact-white-card{
+    border-radius:24px;
+    padding:28px 20px;
+  }
+  .contact-white-title{
+    font-size:24px;
+    line-height:1.15;
+  }
+  .contact-white-row-2{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  .contact-white-meta-table{
+    gap:12px;
+    padding-top:22px;
+    margin-top:22px;
+  }
+  .contact-white-meta-row{
+    grid-template-columns:95px 1fr;
+    gap:10px;
+  }
+  .contact-white-meta-label{
+    font-size:12.5px;
+  }
+  .contact-white-meta-value,
+  .contact-white-meta-link{
+    font-size:13.5px;
+  }
+  .contact-white-action-bar{
+    width:100%;
+  }
+  .contact-white-pill-btn{
+    width:100%;
+    justify-content:space-between;
+    box-sizing:border-box;
+    padding:6px 6px 6px 20px;
+  }
 }
 
 

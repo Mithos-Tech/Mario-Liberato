@@ -14,10 +14,12 @@ export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
+  const [social, setSocial] = useState('');
   const [message, setMessage] = useState('');
   const [honeypot, setHoneypot] = useState('');
   const [status, setStatus] = useState<SubmitStatus>('idle');
   const [errors, setErrors] = useState<FormErrors>({});
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   const validate = (): boolean => {
     const errs: FormErrors = {};
@@ -75,6 +77,7 @@ export default function Contact() {
           name: name.trim(),
           email: email.trim(),
           company: company.trim() || undefined,
+          socialLink: social.trim() || undefined,
           message: message.trim(),
           _gotcha: honeypot,
         }),
@@ -85,6 +88,7 @@ export default function Contact() {
         setName('');
         setEmail('');
         setCompany('');
+        setSocial('');
         setMessage('');
         setErrors({});
       } else {
@@ -103,118 +107,77 @@ export default function Contact() {
   return (
     <section className="s contact-sec" id="contacto">
       <div className="wrap">
-        <div className="contact-bento-grid">
-          {/* ========================================================
-              COLUMNA 1: Contexto editorial y Accesos Directos
-              ======================================================== */}
-          <div className="contact-info-col">
-            <header className="contact-header">
-              <span className="kick">{contact.label}</span>
-              <h2 className="contact-title section-title">
-                <span className="subtitle-main">{contact.titlePrefix ?? contact.title}</span>
-                {contact.titleSerif && (
-                  <span className="subtitle-serif font-serif">{contact.titleSerif}</span>
-                )}
-              </h2>
-              <p className="contact-phrase section-phrase">{contact.text}</p>
-            </header>
-
-            {/* Tarjeta de canales secundarios con estilo Framer */}
-            <div className="contact-channels-card">
-              <span className="contact-channels-eyebrow">Canales directos</span>
-              <div className="contact-actions-list">
-                {/* Botón LinkedIn */}
-                <a
-                  className="contact-channel-btn btn ghost"
-                  href={site.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Abrir perfil de LinkedIn en una nueva pestaña"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    className="contact-btn-icon"
-                  >
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                    <rect x="2" y="9" width="4" height="12" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                  <span className="contact-channel-label">Escribirme por LinkedIn</span>
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    className="contact-btn-arrow"
-                  >
-                    <line x1="7" y1="17" x2="17" y2="7" />
-                    <polyline points="7 7 17 7 17 17" />
-                  </svg>
-                </a>
-
-                {/* Botón Descargar CV */}
-                <a
-                  className="contact-channel-btn btn ghost"
-                  href={site.cvUrl}
-                  download
-                  title="Descargar Currículum Vitae en PDF"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    className="contact-btn-icon"
-                  >
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
-                  </svg>
-                  <span className="contact-channel-label">Descargar CV</span>
-                  <span className="contact-badge-pdf">PDF</span>
-                </a>
+        {/* ========================================================
+            CONTENEDOR BLANCO DE ALTO IMPACTO (Estilo Framer White Island)
+            ======================================================== */}
+        <div className="contact-white-card">
+          <div className="contact-white-grid">
+            {/* ========================================================
+                COLUMNA IZQUIERDA: Titular Editorial de 3 Líneas + Metadatos Limpios
+                ======================================================== */}
+            <div className="contact-white-left">
+              <div className="contact-white-header">
+                <h2 className="contact-white-title">
+                  GRANDES PROYECTOS
+                  <br />
+                  INICIAN CON UNA
+                  <br />
+                  DIRECCIÓN CLARA
+                </h2>
               </div>
 
-              {/* Badge de disponibilidad laboral en vivo */}
-              <div className="contact-status-capsule" role="status">
-                <span className="contact-live-dot" aria-hidden="true" />
-                <span className="contact-status-text">
-                  Disponible para proyectos y trabajo remoto · Lima, Perú
-                </span>
+              {/* Metadatos organizados en tabla minimalista 100% tipográfica según la referencia */}
+              <div className="contact-white-meta-table">
+                <div className="contact-white-meta-row">
+                  <span className="contact-white-meta-label">Ubicación</span>
+                  <span className="contact-white-meta-value">Lima, Perú</span>
+                </div>
+
+                <div className="contact-white-meta-row">
+                  <span className="contact-white-meta-label">LinkedIn</span>
+                  <a
+                    className="contact-white-meta-link"
+                    href={site.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Mario Liberato
+                  </a>
+                </div>
+
+                <div className="contact-white-meta-row">
+                  <span className="contact-white-meta-label">Currículum</span>
+                  <a
+                    className="contact-white-meta-link"
+                    href={site.cvUrl}
+                    download
+                  >
+                    Descargar CV
+                  </a>
+                </div>
+
+                <div className="contact-white-meta-row">
+                  <span className="contact-white-meta-label">Disponibilidad</span>
+                  <span className="contact-white-meta-value">Disponible para trabajo remoto</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* ========================================================
-              COLUMNA 2: Formulario Seguro FormSpark Glassmorphic
-              ======================================================== */}
-          <div className="contact-form-col">
-            <div className="contact-form-card">
+            {/* ========================================================
+                COLUMNA DERECHA: Formulario con Inputs Gris Suave
+                ======================================================== */}
+            <div className="contact-white-right">
+              <div className="contact-white-form-top">
+                <span className="contact-white-kicker">Contacto</span>
+              </div>
+
               {status === 'success' ? (
-                /* Estado de Envío Exitoso */
-                <div className="contact-success-box" role="alert" aria-live="polite">
-                  <div className="contact-success-icon-wrap" aria-hidden="true">
+                /* Estado Exitoso */
+                <div className="contact-white-success" role="alert" aria-live="polite">
+                  <div className="contact-white-success-icon" aria-hidden="true">
                     <svg
-                      width="28"
-                      height="28"
+                      width="30"
+                      height="30"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -225,33 +188,33 @@ export default function Contact() {
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
-                  <h3 className="contact-success-title">Gracias, te responderé pronto</h3>
-                  <p className="contact-success-msg">
-                    Tu mensaje ha sido recibido correctamente. Te escribiré al correo que indicaste
-                    a la brevedad posible.
+                  <h3 className="contact-white-success-heading">Gracias, te responderé pronto</h3>
+                  <p className="contact-white-success-desc">
+                    Tu mensaje ha sido recibido con éxito. Revisaré tu consulta y te escribiré a la
+                    brevedad al correo que indicaste.
                   </p>
                   <button
                     type="button"
                     onClick={resetForm}
-                    className="btn ghost contact-reset-btn"
+                    className="contact-white-reset-btn"
                   >
                     Enviar otro mensaje
                   </button>
                 </div>
               ) : (
-                /* Formulario de Envío */
+                /* Formulario */
                 <form
-                  className="contact-form"
+                  className="contact-white-form"
                   onSubmit={handleSubmit}
                   noValidate
                   aria-label="Formulario de contacto profesional"
                 >
-                  {/* Campo trampa Honeypot para protección Anti-Spam (oculto visualmente con CSS) */}
+                  {/* Honeypot invisible Anti-Spam */}
                   <div className="contact-honeypot" aria-hidden="true">
-                    <label htmlFor="gotcha-field">No llenar este campo</label>
+                    <label htmlFor="cw-gotcha">No llenar este campo</label>
                     <input
                       type="text"
-                      id="gotcha-field"
+                      id="cw-gotcha"
                       name="_gotcha"
                       tabIndex={-1}
                       autoComplete="off"
@@ -260,42 +223,40 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Fila: Nombre y Correo */}
-                  <div className="contact-form-row-2">
-                    {/* Campo Nombre */}
-                    <div className="contact-field-group">
-                      <label className="contact-field-label" htmlFor="contact-name">
-                        Nombre <span className="contact-req-star">*</span>
+                  {/* Fila 1: Nombre* y Correo* */}
+                  <div className="contact-white-row-2">
+                    <div className="contact-white-field">
+                      <label className="contact-white-label" htmlFor="cw-name">
+                        Tu nombre <span className="contact-white-star">*</span>
                       </label>
                       <input
-                        id="contact-name"
+                        id="cw-name"
                         name="name"
                         type="text"
                         required
                         disabled={status === 'submitting'}
-                        className={`contact-input ${errors.name ? 'has-error' : ''}`}
-                        placeholder="Tu nombre o empresa"
+                        className={`contact-white-input ${errors.name ? 'has-error' : ''}`}
+                        placeholder="Nombre"
                         value={name}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => {
                           setName(e.target.value);
                           if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
                         }}
                       />
-                      {errors.name && <span className="contact-field-error">{errors.name}</span>}
+                      {errors.name && <span className="contact-white-error">{errors.name}</span>}
                     </div>
 
-                    {/* Campo Correo */}
-                    <div className="contact-field-group">
-                      <label className="contact-field-label" htmlFor="contact-email">
-                        Correo electrónico <span className="contact-req-star">*</span>
+                    <div className="contact-white-field">
+                      <label className="contact-white-label" htmlFor="cw-email">
+                        Tu correo <span className="contact-white-star">*</span>
                       </label>
                       <input
-                        id="contact-email"
+                        id="cw-email"
                         name="email"
                         type="email"
                         required
                         disabled={status === 'submitting'}
-                        className={`contact-input ${errors.email ? 'has-error' : ''}`}
+                        className={`contact-white-input ${errors.email ? 'has-error' : ''}`}
                         placeholder="tu@empresa.com"
                         value={email}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -303,49 +264,69 @@ export default function Contact() {
                           if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
                         }}
                       />
-                      {errors.email && <span className="contact-field-error">{errors.email}</span>}
+                      {errors.email && <span className="contact-white-error">{errors.email}</span>}
                     </div>
                   </div>
 
-                  {/* Campo Empresa (Opcional) */}
-                  <div className="contact-field-group">
-                    <label className="contact-field-label" htmlFor="contact-company">
-                      Empresa u organización <span className="contact-opt-tag">(opcional)</span>
-                    </label>
-                    <input
-                      id="contact-company"
-                      name="company"
-                      type="text"
-                      disabled={status === 'submitting'}
-                      className="contact-input"
-                      placeholder="Nombre de la empresa o proyecto"
-                      value={company}
-                      onChange={(e: ChangeEvent<HTMLInputElement>) => setCompany(e.target.value)}
-                    />
+                  {/* Fila 2: Empresa (opcional) y LinkedIn / Web (opcional) */}
+                  <div className="contact-white-row-2">
+                    <div className="contact-white-field">
+                      <label className="contact-white-label" htmlFor="cw-company">
+                        <span>Empresa</span>
+                        <span className="contact-white-opt">(opcional)</span>
+                      </label>
+                      <input
+                        id="cw-company"
+                        name="company"
+                        type="text"
+                        disabled={status === 'submitting'}
+                        className="contact-white-input"
+                        placeholder="Nombre de la empresa"
+                        value={company}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => setCompany(e.target.value)}
+                      />
+                    </div>
+
+                    <div className="contact-white-field">
+                      <label className="contact-white-label" htmlFor="cw-social">
+                        <span>LinkedIn o web</span>
+                        <span className="contact-white-opt">(opcional)</span>
+                      </label>
+                      <input
+                        id="cw-social"
+                        name="socialLink"
+                        type="text"
+                        disabled={status === 'submitting'}
+                        className="contact-white-input"
+                        placeholder="Tu enlace o usuario"
+                        value={social}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => setSocial(e.target.value)}
+                      />
+                    </div>
                   </div>
 
-                  {/* Campo Mensaje */}
-                  <div className="contact-field-group">
-                    <div className="contact-label-flex">
-                      <label className="contact-field-label" htmlFor="contact-message">
-                        Mensaje <span className="contact-req-star">*</span>
+                  {/* Fila 3: Mensaje* */}
+                  <div className="contact-white-field">
+                    <div className="contact-white-label-bar">
+                      <label className="contact-white-label" htmlFor="cw-message">
+                        Mensaje <span className="contact-white-star">*</span>
                       </label>
                       <span
-                        className={`contact-char-count ${message.length >= 950 ? 'is-near-limit' : ''}`}
+                        className={`contact-white-char-count ${message.length >= 950 ? 'is-limit' : ''}`}
                         aria-live="polite"
                       >
                         {message.length} / 1000
                       </span>
                     </div>
                     <textarea
-                      id="contact-message"
+                      id="cw-message"
                       name="message"
                       required
                       rows={4}
                       maxLength={1000}
                       disabled={status === 'submitting'}
-                      className={`contact-textarea ${errors.message ? 'has-error' : ''}`}
-                      placeholder="Cuéntame sobre tu requerimiento, oportunidad o proyecto..."
+                      className={`contact-white-textarea ${errors.message ? 'has-error' : ''}`}
+                      placeholder="Cuéntame sobre tu requerimiento o proyecto..."
                       value={message}
                       onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
                         setMessage(e.target.value);
@@ -353,86 +334,70 @@ export default function Contact() {
                       }}
                     />
                     {errors.message && (
-                      <span className="contact-field-error">{errors.message}</span>
+                      <span className="contact-white-error">{errors.message}</span>
                     )}
                   </div>
 
-                  {/* Mensaje de Error en Envío */}
+                  {/* Banner de error */}
                   {status === 'error' && (
-                    <div className="contact-error-banner" role="alert">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                        className="contact-error-icon"
-                      >
+                    <div className="contact-white-error-banner" role="alert">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <circle cx="12" cy="12" r="10" />
                         <line x1="12" y1="8" x2="12" y2="12" />
                         <line x1="12" y1="16" x2="12.01" y2="16" />
                       </svg>
-                      <span>
-                        No se pudo enviar el mensaje. Intenta nuevamente o contáctame por LinkedIn.
-                      </span>
+                      <span>No se pudo enviar el mensaje. Intenta nuevamente o escríbeme por LinkedIn.</span>
                     </div>
                   )}
 
-                  {/* Botón de Envío */}
-                  <button
-                    type="submit"
-                    disabled={status === 'submitting'}
-                    className="contact-submit-btn btn hot"
-                  >
-                    {status === 'submitting' ? (
-                      <>
-                        <span className="contact-submit-spinner" aria-hidden="true" />
-                        <span>Enviando mensaje...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Enviar mensaje</span>
-                        <svg
-                          width="15"
-                          height="15"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
-                          className="contact-submit-arrow"
-                        >
-                          <line x1="22" y1="2" x2="11" y2="13" />
-                          <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                        </svg>
-                      </>
-                    )}
-                  </button>
-
-                  {/* Línea de privacidad requerida */}
-                  <div className="contact-privacy-footer">
-                    <svg
-                      width="13"
-                      height="13"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      className="contact-privacy-icon"
+                  {/* Botón Insignia estilo referencia: Píldora negra con círculo blanco y flecha ↗ */}
+                  <div className="contact-white-action-bar">
+                    <button
+                      type="submit"
+                      disabled={status === 'submitting'}
+                      className="contact-white-pill-btn"
+                      title="Enviar mensaje de contacto"
                     >
+                      <span className="contact-white-pill-label">
+                        {status === 'submitting' ? 'Enviando...' : 'Iniciar un proyecto'}
+                      </span>
+                      <span className="contact-white-pill-icon" aria-hidden="true">
+                        {status === 'submitting' ? (
+                          <span className="contact-white-spinner" />
+                        ) : (
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.4"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <line x1="7" y1="17" x2="17" y2="7" />
+                            <polyline points="7 7 17 7 17 17" />
+                          </svg>
+                        )}
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Nota de privacidad */}
+                  <div className="contact-white-privacy-note">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
                     <span>{contact.privacyNotice}</span>
+                    <button
+                      type="button"
+                      onClick={() => setShowPrivacyModal(true)}
+                      className="contact-white-privacy-trigger"
+                      title="Ver aviso de privacidad y protección de datos"
+                    >
+                      Aviso de privacidad
+                    </button>
                   </div>
                 </form>
               )}
@@ -440,6 +405,93 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      {/* Modal Minimalista de Aviso de Privacidad (Ley N° 29733 de Perú & GDPR) */}
+      {showPrivacyModal && (
+        <div
+          className="privacy-modal-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="privacy-modal-title"
+          onClick={() => setShowPrivacyModal(false)}
+        >
+          <div
+            className="privacy-modal-card"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="privacy-modal-header">
+              <div className="privacy-modal-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                <span>Protección de Datos</span>
+              </div>
+              <button
+                type="button"
+                className="privacy-modal-close"
+                onClick={() => setShowPrivacyModal(false)}
+                aria-label="Cerrar aviso de privacidad"
+              >
+                ✕
+              </button>
+            </div>
+
+            <h3 id="privacy-modal-title" className="privacy-modal-title">
+              Aviso de Privacidad y Tratamiento de Datos
+            </h3>
+
+            <div className="privacy-modal-body">
+              <p className="privacy-modal-intro">
+                En cumplimiento con la Ley de Protección de Datos Personales (Ley N° 29733 de Perú) y estándares internacionales de privacidad, este portafolio garantiza el uso estrictamente profesional de tu información:
+              </p>
+
+              <div className="privacy-modal-list">
+                <div className="privacy-modal-item">
+                  <span className="privacy-item-num">1</span>
+                  <div className="privacy-item-text">
+                    <strong>Responsable</strong>
+                    <p>Mario Liberato, profesional en Soporte TI, Desarrollo Web y Automatización con IA (Lima, Perú).</p>
+                  </div>
+                </div>
+
+                <div className="privacy-modal-item">
+                  <span className="privacy-item-num">2</span>
+                  <div className="privacy-item-text">
+                    <strong>Finalidad exclusiva</strong>
+                    <p>Los datos ingresados (nombre, correo, empresa y mensaje) se emplean únicamente para atender y responder a tu solicitud de cotización o proyecto.</p>
+                  </div>
+                </div>
+
+                <div className="privacy-modal-item">
+                  <span className="privacy-item-num">3</span>
+                  <div className="privacy-item-text">
+                    <strong>Confidencialidad y cero spam</strong>
+                    <p>Tus datos no se comercializan, ceden ni comparten con terceros para publicidad ni campañas no autorizadas.</p>
+                  </div>
+                </div>
+
+                <div className="privacy-modal-item">
+                  <span className="privacy-item-num">4</span>
+                  <div className="privacy-item-text">
+                    <strong>Derechos ARCO</strong>
+                    <p>Tienes derecho en todo momento a solicitar la consulta, rectificación o eliminación de tus datos personales enviando un mensaje directo.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="privacy-modal-footer">
+              <button
+                type="button"
+                className="privacy-modal-action-btn"
+                onClick={() => setShowPrivacyModal(false)}
+              >
+                Entendido
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

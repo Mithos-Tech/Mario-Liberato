@@ -7,7 +7,8 @@ import Trajectory from './components/Trajectory';
 import Certifications from './components/Certifications';
 import WorkTogetherMarquee from './components/WorkTogetherMarquee';
 import Contact from './components/Contact';
-import { support, studio, labs, site } from './content';
+import Footer from './components/Footer';
+import { support, studio, labs } from './content';
 
 export default function App() {
   // Aparición suave al hacer scroll (clase .in sobre los elementos .rv)
@@ -41,22 +42,7 @@ export default function App() {
       <Certifications />
       <WorkTogetherMarquee />
       <Contact />
-      <footer className="site-footer">
-        <div className="site-footer-inner">
-          <div className="site-footer-brand">
-            <img
-              src={site.logo?.whiteSvg || '/logo-white.svg'}
-              alt="Logo Liberato"
-              className="footer-logo-icon"
-              width="22"
-              height="21"
-              loading="lazy"
-            />
-            <span className="footer-brand-name">{site.brand}</span>
-          </div>
-          <p className="footer-copy">{site.footer}</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
