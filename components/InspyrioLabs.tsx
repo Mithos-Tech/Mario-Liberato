@@ -75,7 +75,7 @@ export default function InspyrioLabs() {
   const [typing, setTyping] = useState(false);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const viewportRef = useRef<HTMLDivElement | null>(null);
 
   const reduced = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
@@ -108,9 +108,14 @@ export default function InspyrioLabs() {
     return () => clearTimeout(timer);
   }, [step, reduced]);
 
-  // Scroll suave al último mensaje sin alterar la altura fija
+  // Scroll interno de la consola de mensajes (100% aislado dentro del contenedor, nunca toca el scroll de la página)
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (viewportRef.current) {
+      viewportRef.current.scrollTo({
+        top: viewportRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
   }, [step, typing]);
 
   const selectStep = (index: number) => {
@@ -209,7 +214,7 @@ export default function InspyrioLabs() {
 
           {/* Ventana de mensajes con máscara de desvanecimiento superior */}
           <div className="labs-viewport-mask">
-            <div className="labs-messages-viewport" role="log" aria-live="polite">
+            <div ref={viewportRef} className="labs-messages-viewport" role="log" aria-live="polite">
               {/* Mensaje 1: Cliente */}
               <div className="labs-row labs-row-user">
                 <div className="labs-bubble labs-bubble-user">
@@ -276,9 +281,6 @@ export default function InspyrioLabs() {
                   </div>
                 </div>
               )}
-
-              {/* Ancla para el scroll automático */}
-              <div ref={messagesEndRef} />
             </div>
           </div>
 
